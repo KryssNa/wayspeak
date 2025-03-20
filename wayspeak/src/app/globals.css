@@ -1,0 +1,227 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/aspect-ratio";
+
+@theme {
+  --darkMode: ["class"];
+  
+  --container-center: true;
+  --container-padding: 2rem;
+  --container-screens-2xl: 1400px;
+  
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  
+  --color-brand-50: #e6f8ff;
+  --color-brand-100: #b3e7ff;
+  --color-brand-200: #80d6ff;
+  --color-brand-300: #4dc5ff;
+  --color-brand-400: #1ab4ff;
+  --color-brand-500: #0095e6;
+  --color-brand-600: #0077b3;
+  --color-brand-700: #005980;
+  --color-brand-800: #003b4d;
+  --color-brand-900: #001d26;
+  
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  
+  --keyframes-accordion-down: {
+    from: { height: 0 },
+    to: { height: var(--radix-accordion-content-height) }
+  };
+  
+  --keyframes-accordion-up: {
+    from: { height: var(--radix-accordion-content-height) },
+    to: { height: 0 }
+  };
+  
+  --keyframes-fade-in: {
+    from: { opacity: 0 },
+    to: { opacity: 1 }
+  };
+  
+  --keyframes-fade-out: {
+    from: { opacity: 1 },
+    to: { opacity: 0 }
+  };
+  
+  --keyframes-slide-in-right: {
+    from: { transform: translateX(100%) },
+    to: { transform: translateX(0) }
+  };
+  
+  --keyframes-slide-out-right: {
+    from: { transform: translateX(0) },
+    to: { transform: translateX(100%) }
+  };
+  
+  --keyframes-slide-in-bottom: {
+    from: { transform: translateY(20px); opacity: 0 },
+    to: { transform: translateY(0); opacity: 1 }
+  };
+  
+  --keyframes-float: {
+    "0%, 100%": { transform: translateY(0) },
+    "50%": { transform: translateY(-10px) }
+  };
+  
+  --keyframes-pulse: {
+    "0%, 100%": { opacity: 1 },
+    "50%": { opacity: 0.5 }
+  };
+  
+  --animation-accordion-down: accordion-down 0.2s ease-out;
+  --animation-accordion-up: accordion-up 0.2s ease-out;
+  --animation-fade-in: fade-in 0.2s ease-out;
+  --animation-fade-out: fade-out 0.2s ease-out;
+  --animation-slide-in-right: slide-in-right 0.3s ease-out;
+  --animation-slide-out-right: slide-out-right 0.3s ease-out;
+  --animation-slide-in-bottom: slide-in-bottom 0.4s ease-out;
+  --animation-float: float 3s ease-in-out infinite;
+  --animation-pulse: pulse 3s ease-in-out infinite;
+  
+  --typography: {
+    css: {
+      maxWidth: '65ch',
+      color: 'var(--tw-prose-body)',
+      p: {
+        marginTop: '1.25em',
+        marginBottom: '1.25em'
+      }
+    }
+  };
+}
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 201 100% 45%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 201 100% 45%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 201 100% 45%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 201 100% 45%;
+}
+
+body {
+  font-feature-settings:
+    "rlig" 1,
+    "calt" 1;
+  font-variant-ligatures: contextual;
+}
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 8px;
+  color: aquamarine;
+}
+
+/* Animation helper classes */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-item {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.3s ease-out,
+    transform 0.3s ease-out;
+}
+
+.stagger-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
